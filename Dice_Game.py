@@ -9,19 +9,29 @@ player_Wins = 0
 print("Welcome To Dice Game!") #Welcome The Player
 print("Game Rules: You And The Computer Roll A Dice, Whoever Has The Highest Dice Number Wins The Round. First To Three Wins Takes The Victory!") # Explain The Rules
 
-trynaGame = str(input("If You Would Like To Play Enter The Word 'Game':")) #Ask If They Would Like To Play The Game
-if(trynaGame == "Game" or "game"): # If The Input Is Fine, Begin The Game. If It Is Not Then Tell Them How To Play
-    print("The Computer Will Roll First")
+trynaGame = input("If You Would Like To Play, Type The Word 'Enter':") #Ask If They Would Like To Play The Game
+
+if(trynaGame != "Enter" and trynaGame != "enter"):
+  print("To Begin The Game Please Type The Word 'Enter', If You Don't Want To Play Have A Nice Day!") # If The Input Is Fine, Begin The Game. If It Is Not Then Tell Them How To Play
+  trynaGame = False # If You Don't Enter 'Enter' Then The Game Will Ask You To Type Enter
 else:
-    print("If You Would Like To Play Enter 'Game'")
-while True: # While Either Of The Players Do Not Have 3 Wins Iterate The Loop
+  trynaGame = True # Else Then Continue With The Code
+
+
+
+while trynaGame: # While Either Of The Players Do Not Have 3 Wins Iterate The Loop
     while(player_Wins < 3 and comp_Wins < 3):
       randomComp = random.choice(diceList) # Get A Random Number For The Dice
       print("The Number That The Computer Rolled Was",randomComp) # Tell The User What The Number Is For The Computer
 
       wannaPlay = str(input("Type 'Roll' To Roll The Dice:")) # Ask The User To Roll Their Dice
-      if(wannaPlay != "Roll" or "roll"): # If The Answer Is Not This Then Tell Them How To Play It
-        print("If You Want To Play Please Enter 'Roll'")
+      if(wannaPlay == "Roll" or wannaPlay == "roll"): # If The Answer Is Correct let Them Play Else  Then Tell Them How To Play It
+        None
+      else:
+        print("If You Want To Play Please Enter 'Roll'")# Tell Them How To Play
+        trynaGame = False
+        break# Break Out Of The Loop
+
       randomPlayer = random.choice(diceList) # Get A Random Number For The User
       print("The Number That You Rolled Was",randomPlayer) #Print Their Number
 
@@ -48,6 +58,8 @@ while True: # While Either Of The Players Do Not Have 3 Wins Iterate The Loop
     else:
       print("The Computer Won This Game, Better Luck Next Game")
     break #Break Out Of The Loop
+    
+    
 
 
 
