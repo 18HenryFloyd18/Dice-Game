@@ -1,3 +1,4 @@
+#Programmed By Henry Floyd, Ryan Rinn, Jeremiah Clark, And Cole Bryant
 import random #Import The Random Function
 import math #Import The Math Function
 
